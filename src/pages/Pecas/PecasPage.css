@@ -1,0 +1,214 @@
+.pecas {
+  max-width: 1100px;
+}
+
+.pecas__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+}
+
+.pecas__titulo {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--erp-texto);
+}
+
+.pecas__btn-novo {
+  padding: 9px 20px;
+  background-color: var(--erp-primaria);
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.pecas__btn-novo:hover {
+  background-color: #b892c4;
+}
+
+/* States */
+.pecas__spinner {
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--erp-texto-suave);
+  font-size: 14px;
+}
+
+.pecas__erro {
+  padding: var(--space-md);
+  background-color: rgba(224, 92, 92, 0.1);
+  border: 1px solid rgba(224, 92, 92, 0.25);
+  border-radius: 8px;
+  color: var(--erp-perigo);
+  font-size: 14px;
+}
+
+.pecas__vazio {
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--erp-texto-suave);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.pecas__vazio a {
+  color: var(--erp-primaria);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Table */
+.pecas__tabela-wrap {
+  background-color: var(--erp-superficie);
+  border: 1px solid var(--erp-borda);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+}
+
+.pecas__tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.pecas__tabela thead tr {
+  background-color: #f4f0f7;
+}
+
+.pecas__tabela th {
+  padding: 12px var(--space-md);
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--erp-texto-suave);
+  border-bottom: 1px solid var(--erp-borda);
+}
+
+.pecas__tabela td {
+  padding: 12px var(--space-md);
+  border-bottom: 1px solid var(--erp-borda);
+  color: var(--erp-texto);
+  vertical-align: middle;
+}
+
+.pecas__tabela tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.pecas__tabela tbody tr:hover {
+  background-color: #faf8fc;
+}
+
+/* Columns */
+.pecas__col-foto {
+  width: 56px;
+}
+
+.pecas__thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  object-fit: cover;
+  display: block;
+}
+
+.pecas__thumb-vazio {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: #f0eaf4;
+}
+
+.pecas__col-nome {
+  font-weight: 500;
+}
+
+.pecas__col-num {
+  color: var(--erp-texto-suave);
+  white-space: nowrap;
+}
+
+/* Badge */
+.pecas__badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pecas__badge--ativa {
+  background-color: rgba(76, 175, 130, 0.12);
+  color: var(--erp-sucesso);
+}
+
+.pecas__badge--inativa {
+  background-color: rgba(224, 92, 92, 0.1);
+  color: var(--erp-perigo);
+}
+
+/* Actions */
+.pecas__col-acoes {
+  white-space: nowrap;
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.pecas__link-editar {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--erp-primaria);
+  border: 1px solid var(--erp-primaria);
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.pecas__link-editar:hover {
+  background-color: rgba(201, 168, 212, 0.1);
+}
+
+.pecas__btn-toggle {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid;
+  transition: opacity 0.15s ease;
+}
+
+.pecas__btn-toggle:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pecas__btn-toggle--desativar {
+  color: var(--erp-alerta);
+  border-color: var(--erp-alerta);
+  background: transparent;
+}
+
+.pecas__btn-toggle--desativar:hover:not(:disabled) {
+  background-color: rgba(245, 166, 35, 0.08);
+}
+
+.pecas__btn-toggle--reativar {
+  color: var(--erp-sucesso);
+  border-color: var(--erp-sucesso);
+  background: transparent;
+}
+
+.pecas__btn-toggle--reativar:hover:not(:disabled) {
+  background-color: rgba(76, 175, 130, 0.08);
+}

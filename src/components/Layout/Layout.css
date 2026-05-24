@@ -1,0 +1,126 @@
+.layout {
+  display: flex;
+  height: 100%;
+  background-color: var(--erp-fundo);
+}
+
+/* Sidebar */
+.layout__sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background-color: var(--erp-fundo-sidebar);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) 0 var(--space-lg);
+}
+
+.layout__logo {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 32px;
+  color: #ffffff;
+  padding: 0 var(--space-lg) var(--space-xl);
+  line-height: 1;
+}
+
+.layout__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 var(--space-sm);
+}
+
+.layout__nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 10px var(--space-md);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.layout__nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.layout__nav-item--ativo {
+  background-color: rgba(201, 168, 212, 0.15);
+  color: var(--erp-primaria);
+}
+
+.layout__nav-item--ativo:hover {
+  background-color: rgba(201, 168, 212, 0.2);
+  color: var(--erp-primaria);
+}
+
+.layout__nav-icon {
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Header */
+.layout__corpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.layout__header {
+  height: 60px;
+  background-color: var(--erp-superficie);
+  border-bottom: 1px solid var(--erp-borda);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 var(--space-xl);
+  flex-shrink: 0;
+}
+
+.layout__header-usuario {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.layout__header-nome {
+  font-size: 14px;
+  color: var(--erp-texto-suave);
+}
+
+.layout__header-logout {
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid var(--erp-borda);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--erp-texto-suave);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.layout__header-logout:hover {
+  border-color: var(--erp-perigo);
+  color: var(--erp-perigo);
+}
+
+/* Main content */
+.layout__conteudo {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-xl);
+}
+
+/* Responsive — hide sidebar below 1024px */
+@media (max-width: 1023px) {
+  .layout__sidebar {
+    display: none;
+  }
+}

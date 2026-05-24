@@ -1,0 +1,203 @@
+.peca-form {
+  max-width: 720px;
+}
+
+.peca-form__loading {
+  color: var(--erp-texto-suave);
+  font-size: 14px;
+  padding: var(--space-xl);
+}
+
+.peca-form__header {
+  margin-bottom: var(--space-xl);
+}
+
+.peca-form__titulo {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--erp-texto);
+}
+
+.peca-form__card {
+  background-color: var(--erp-superficie);
+  border: 1px solid var(--erp-borda);
+  border-radius: var(--card-radius);
+  padding: var(--space-xl);
+}
+
+.peca-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.peca-form__erro {
+  padding: var(--space-md);
+  background-color: rgba(224, 92, 92, 0.1);
+  border: 1px solid rgba(224, 92, 92, 0.25);
+  border-radius: 8px;
+  color: var(--erp-perigo);
+  font-size: 14px;
+}
+
+.peca-form__linha {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.peca-form__campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1;
+}
+
+.peca-form__campo--largo {
+  flex: 2;
+}
+
+.peca-form__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--erp-texto-suave);
+}
+
+.peca-form__input {
+  width: 100%;
+  padding: 10px var(--space-md);
+  border: 1px solid var(--erp-borda);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+  color: var(--erp-texto);
+  background-color: #ffffff;
+  transition: border-color 0.2s ease;
+}
+
+.peca-form__input:focus {
+  outline: none;
+  border-color: var(--erp-primaria);
+}
+
+.peca-form__input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Image upload */
+.peca-form__imagem-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.peca-form__input-file {
+  display: none;
+}
+
+.peca-form__upload-btn {
+  padding: 10px var(--space-md);
+  border: 1px dashed var(--erp-borda);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--erp-texto-suave);
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.peca-form__upload-btn:hover:not(:disabled) {
+  border-color: var(--erp-primaria);
+  color: var(--erp-primaria);
+}
+
+.peca-form__preview-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.peca-form__preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--erp-borda);
+}
+
+.peca-form__preview-trocar {
+  padding: 7px 14px;
+  border: 1px solid var(--erp-borda);
+  border-radius: 6px;
+  background: transparent;
+  font-size: 13px;
+  font-family: 'Nunito', sans-serif;
+  color: var(--erp-texto-suave);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.peca-form__preview-trocar:hover {
+  border-color: var(--erp-primaria);
+  color: var(--erp-primaria);
+}
+
+/* Actions */
+.peca-form__acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--erp-borda);
+}
+
+.peca-form__btn-cancelar {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid var(--erp-borda);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  color: var(--erp-texto-suave);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.peca-form__btn-cancelar:hover:not(:disabled) {
+  border-color: var(--erp-perigo);
+  color: var(--erp-perigo);
+}
+
+.peca-form__btn-salvar {
+  padding: 10px 24px;
+  background-color: var(--erp-primaria);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.peca-form__btn-salvar:hover:not(:disabled) {
+  background-color: #b892c4;
+}
+
+.peca-form__btn-salvar:disabled,
+.peca-form__btn-cancelar:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .peca-form__linha {
+    flex-direction: column;
+  }
+
+  .peca-form__campo--largo {
+    flex: 1;
+  }
+}

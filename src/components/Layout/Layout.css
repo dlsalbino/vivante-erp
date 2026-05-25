@@ -4,7 +4,7 @@
   background-color: var(--erp-fundo);
 }
 
-/* Sidebar */
+/* ── Sidebar ─────────────────────────────────────────── */
 .layout__sidebar {
   width: 240px;
   flex-shrink: 0;
@@ -40,6 +40,7 @@
   font-weight: 500;
   color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
+  border-left: 3px solid transparent;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
@@ -49,12 +50,13 @@
 }
 
 .layout__nav-item--ativo {
-  background-color: rgba(201, 168, 212, 0.15);
+  background-color: rgba(201, 168, 212, 0.2);
   color: var(--erp-primaria);
+  border-left-color: var(--erp-primaria);
 }
 
 .layout__nav-item--ativo:hover {
-  background-color: rgba(201, 168, 212, 0.2);
+  background-color: rgba(201, 168, 212, 0.25);
   color: var(--erp-primaria);
 }
 
@@ -65,7 +67,7 @@
   flex-shrink: 0;
 }
 
-/* Header */
+/* ── Header + corpo ──────────────────────────────────── */
 .layout__corpo {
   flex: 1;
   display: flex;
@@ -111,16 +113,70 @@
   color: var(--erp-perigo);
 }
 
-/* Main content */
 .layout__conteudo {
   flex: 1;
   overflow-y: auto;
   padding: var(--space-xl);
 }
 
-/* Responsive — hide sidebar below 1024px */
+/* ── Bottom navigation (mobile) ──────────────────────── */
+.layout__bottom-nav {
+  display: none;
+}
+
+/* ── Responsividade ──────────────────────────────────── */
 @media (max-width: 1023px) {
   .layout__sidebar {
     display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .layout__header {
+    padding: 0 var(--space-md);
+  }
+
+  .layout__conteudo {
+    padding: var(--space-md);
+    padding-bottom: calc(64px + var(--space-md));
+  }
+
+  .layout__bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background-color: var(--erp-superficie);
+    border-top: 1px solid var(--erp-borda);
+    z-index: 100;
+  }
+
+  .layout__bottom-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    text-decoration: none;
+    color: var(--erp-texto-suave);
+    min-height: 44px;
+    transition: color 0.15s ease;
+  }
+
+  .layout__bottom-item--ativo {
+    color: var(--erp-primaria);
+  }
+
+  .layout__bottom-icon {
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .layout__bottom-label {
+    font-size: 11px;
+    font-weight: 600;
   }
 }

@@ -3,8 +3,8 @@ import useAuthStore from '../../store/authStore'
 import './Layout.css'
 
 const navItems = [
-  { to: '/dashboard', label: 'Dashboard', icon: '⊞' },
-  { to: '/pecas', label: 'Peças', icon: '◈' },
+  { to: '/dashboard', label: 'Dashboard', icon: '⊞', end: true },
+  { to: '/pecas', label: 'Peças', icon: '◈', end: false },
 ]
 
 export default function Layout() {
@@ -16,11 +16,11 @@ export default function Layout() {
       <aside className="layout__sidebar">
         <div className="layout__logo">Vivante</div>
         <nav className="layout__nav">
-          {navItems.map(({ to, label, icon }) => (
+          {navItems.map(({ to, label, icon, end }) => (
             <NavLink
               key={to}
               to={to}
-              end
+              end={end}
               className={({ isActive }) =>
                 `layout__nav-item${isActive ? ' layout__nav-item--ativo' : ''}`
               }
@@ -46,6 +46,22 @@ export default function Layout() {
           <Outlet />
         </main>
       </div>
+
+      <nav className="layout__bottom-nav" aria-label="Navegação principal">
+        {navItems.map(({ to, label, icon, end }) => (
+          <NavLink
+            key={to}
+            to={to}
+            end={end}
+            className={({ isActive }) =>
+              `layout__bottom-item${isActive ? ' layout__bottom-item--ativo' : ''}`
+            }
+          >
+            <span className="layout__bottom-icon">{icon}</span>
+            <span className="layout__bottom-label">{label}</span>
+          </NavLink>
+        ))}
+      </nav>
     </div>
   )
 }

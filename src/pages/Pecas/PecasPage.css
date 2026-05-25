@@ -212,3 +212,113 @@
 .pecas__btn-toggle--reativar:hover:not(:disabled) {
   background-color: rgba(76, 175, 130, 0.08);
 }
+
+/* ── Mobile cards ────────────────────────────────────── */
+.pecas__cards {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .pecas__header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .pecas__tabela-wrap {
+    display: none;
+  }
+
+  .pecas__cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .pecas__card {
+    background-color: var(--erp-superficie);
+    border: 1px solid var(--erp-borda);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+  }
+
+  .pecas__card-topo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--erp-borda);
+  }
+
+  .pecas__card-foto {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .pecas__card-foto--vazia {
+    background-color: #f0eaf4;
+  }
+
+  .pecas__card-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .pecas__card-nome {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--erp-texto);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .pecas__card-valores {
+    display: flex;
+    padding: var(--space-md);
+    gap: var(--space-md);
+    border-bottom: 1px solid var(--erp-borda);
+  }
+
+  .pecas__card-valor {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .pecas__card-valor-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--erp-texto-suave);
+  }
+
+  .pecas__card-valor-num {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--erp-texto);
+  }
+
+  .pecas__card-acoes {
+    display: flex;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+  }
+
+  .pecas__card-acoes .pecas__link-editar,
+  .pecas__card-acoes .pecas__btn-toggle {
+    flex: 1;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--space-md);
+  }
+}

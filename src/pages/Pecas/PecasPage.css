@@ -108,6 +108,10 @@
   background-color: #faf8fc;
 }
 
+.pecas__linha {
+  cursor: pointer;
+}
+
 /* Columns */
 .pecas__col-foto {
   width: 56px;
@@ -238,6 +242,7 @@
     border: 1px solid var(--erp-borda);
     border-radius: var(--card-radius);
     overflow: hidden;
+    cursor: pointer;
   }
 
   .pecas__card-topo {

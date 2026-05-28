@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { usePecas } from '../../hooks/usePecas'
 import './PecasPage.css'
 
@@ -8,12 +8,24 @@ const brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' 
 export default function PecasPage() {
   const { pecas, loading, error, carregar, desativar, reativar } = usePecas()
   const [acao, setAcao] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     carregar()
   }, [carregar])
 
-  async function handleToggle(peca) {
+  // Ativas primeiro, inativas depois — sort estável preserva a ordem da API dentro de cada grupo
+  const pecasOrdenadas = useMemo(
+    () => [...pecas].sort((a, b) => Number(b.ativo) - Number(a.ativo)),
+    [pecas],
+  )
+
+  function irParaEdicao(id) {
+    navigate(`/pecas/${id}/editar`)
+  }
+
+  async function handleToggle(event, peca) {
+    event.stopPropagation()
     setAcao(peca.id)
     try {
       if (peca.ativo) {
@@ -76,8 +88,12 @@ export default function PecasPage() {
                 </tr>
               </thead>
               <tbody>
-                {pecas.map((peca) => (
-                  <tr key={peca.id}>
+                {pecasOrdenadas.map((peca) => (
+                  <tr
+                    key={peca.id}
+                    className="pecas__linha"
+                    onClick={() => irParaEdicao(peca.id)}
+                  >
                     <td className="pecas__col-foto">
                       {peca.imagemUrl ? (
                         <img src={peca.imagemUrl} alt={peca.nome} className="pecas__thumb" />
@@ -95,13 +111,17 @@ export default function PecasPage() {
                       </span>
                     </td>
                     <td className="pecas__col-acoes">
-                      <Link to={`/pecas/${peca.id}/editar`} className="pecas__link-editar">
+                      <Link
+                        to={`/pecas/${peca.id}/editar`}
+                        className="pecas__link-editar"
+                        onClick={(e) => e.stopPropagation()}
+                      >
                         Editar
                       </Link>
                       <button
                         type="button"
                         className={toggleClass(peca.ativo)}
-                        onClick={() => handleToggle(peca)}
+                        onClick={(e) => handleToggle(e, peca)}
                         disabled={acao === peca.id}
                       >
                         {toggleLabel(peca)}
@@ -115,8 +135,12 @@ export default function PecasPage() {
 
           {/* Cards — visível apenas em mobile */}
           <div className="pecas__cards">
-            {pecas.map((peca) => (
-              <div key={peca.id} className="pecas__card">
+            {pecasOrdenadas.map((peca) => (
+              <div
+                key={peca.id}
+                className="pecas__card"
+                onClick={() => irParaEdicao(peca.id)}
+              >
                 <div className="pecas__card-topo">
                   {peca.imagemUrl ? (
                     <img src={peca.imagemUrl} alt={peca.nome} className="pecas__card-foto" />
@@ -147,13 +171,17 @@ export default function PecasPage() {
                 </div>
 
                 <div className="pecas__card-acoes">
-                  <Link to={`/pecas/${peca.id}/editar`} className="pecas__link-editar">
+                  <Link
+                    to={`/pecas/${peca.id}/editar`}
+                    className="pecas__link-editar"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     Editar
                   </Link>
                   <button
                     type="button"
                     className={toggleClass(peca.ativo)}
-                    onClick={() => handleToggle(peca)}
+                    onClick={(e) => handleToggle(e, peca)}
                     disabled={acao === peca.id}
                   >
                     {toggleLabel(peca)}
